@@ -1,7 +1,7 @@
 package fs
 
 import (
-	"errors"
+	"go/build"
 	"io"
 	"os"
 	"path/filepath"
@@ -63,10 +63,10 @@ func hasAllFeatures(dir string, features []string) bool {
 	return true
 }
 
-func GetGoSrcPath() (string, error) {
+func GetGoSrcPath() string {
 	gopath := os.Getenv(`GOPATH`)
 	if gopath == `` {
-		return ``, errors.New(`empty env variable GOPATH.`)
+		gopath = build.Default.GOPATH
 	}
-	return filepath.Join(gopath, `src`), nil
+	return filepath.Join(gopath, `src`)
 }
