@@ -5,6 +5,7 @@ import (
 	"io"
 	"os"
 	"path/filepath"
+	"runtime"
 )
 
 func Exist(p string) bool {
@@ -69,4 +70,14 @@ func GetGoSrcPath() string {
 		gopath = build.Default.GOPATH
 	}
 	return filepath.Join(gopath, `src`)
+}
+
+func SourceDir() string {
+	_, filename, _, _ := runtime.Caller(1)
+	return filepath.Dir(filename)
+}
+
+func SourceFile() string {
+	_, filename, _, _ := runtime.Caller(1)
+	return filename
 }
