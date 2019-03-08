@@ -13,8 +13,8 @@ func Exist(p string) bool {
 	return err == nil || !os.IsNotExist(err)
 }
 
-func NotExist(path string) bool {
-	_, err := os.Stat(path)
+func NotExist(p string) bool {
+	_, err := os.Stat(p)
 	return err != nil && os.IsNotExist(err)
 }
 
@@ -79,5 +79,5 @@ func SourceDir() string {
 
 func SourceFile() string {
 	_, filename, _, _ := runtime.Caller(1)
-	return filename
+	return filepath.FromSlash(filename)
 }
