@@ -12,7 +12,7 @@ install:
   - go get -t ./...
 script:
   - |
-    if [[ $(go version) == *1.11* ]]; then
+    if [[ $(go version) == *1.11* && $(go env GOOS) == linux ]]; then
       go test -v -covermode=count -coverprofile=coverage.out ./...
       go get github.com/mattn/goveralls
       $HOME/gopath/bin/goveralls -coverprofile=coverage.out -service=travis-ci
