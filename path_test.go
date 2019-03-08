@@ -17,6 +17,7 @@ func ExampleSourceFile() {
 }
 
 func printPath(p string) {
+	fmt.Println(p)
 	sep := string(os.PathSeparator)
 	p = strings.TrimPrefix(p, GetGoSrcPath()+sep)
 	if os.PathSeparator != '/' {
