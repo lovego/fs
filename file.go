@@ -5,6 +5,18 @@ import (
 	"os"
 )
 
+func Append(p string, b []byte) error {
+	f, err := os.OpenFile(p, os.O_WRONLY|os.O_APPEND|os.O_CREATE, 0666)
+	if err != nil {
+		return err
+	}
+	_, err = f.Write(b)
+	if err2 := f.Close(); err == nil {
+		err = err2
+	}
+	return err
+}
+
 func OpenAppend(p string) (*os.File, error) {
 	return os.OpenFile(p, os.O_WRONLY|os.O_APPEND|os.O_CREATE, 0666)
 }
