@@ -2,19 +2,18 @@ package fs
 
 import (
 	"fmt"
-	"os"
 	"path/filepath"
 	"strings"
 )
 
 func ExampleSourceDir() {
 	p := SourceDir()
-	fmt.Println(filepath.ToSlash(strings.TrimPrefix(p, GetGoSrcPath()+string(os.PathSeparator))))
-	// Output: github.com/lovego/fs
+	fmt.Println(strings.HasSuffix(filepath.ToSlash(p), `github.com/lovego/fs`))
+	// Output: true
 }
 
 func ExampleSourceFile() {
 	p := SourceFile()
-	fmt.Println(filepath.ToSlash(strings.TrimPrefix(p, GetGoSrcPath()+string(os.PathSeparator))))
-	// Output: github.com/lovego/fs/path_test.go
+	fmt.Println(strings.HasSuffix(filepath.ToSlash(p), `github.com/lovego/fs/path_test.go`))
+	// Output: true
 }
