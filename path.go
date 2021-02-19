@@ -64,12 +64,20 @@ func hasAllFeatures(dir string, features []string) bool {
 	return true
 }
 
-func GoModPath() string {
+func GoPath() string {
 	gopath := os.Getenv(`GOPATH`)
 	if gopath == `` {
 		gopath = build.Default.GOPATH
 	}
-	return filepath.Join(gopath, `pkg`, `mod`)
+	return gopath
+}
+
+func GoModPath() string {
+	return filepath.Join(GoPath(), `pkg`, `mod`)
+}
+
+func GoSrcPath() string {
+	return filepath.Join(GoPath(), `src`)
 }
 
 func SourceDir() string {
