@@ -3,6 +3,7 @@ package fs
 import (
 	"go/build"
 	"io"
+	"log"
 	"os"
 	"path/filepath"
 	"runtime"
@@ -57,7 +58,9 @@ func DetectDir(dir string, features ...string) string {
 
 func hasAllFeatures(dir string, features []string) bool {
 	for _, feature := range features {
-		if !Exist(filepath.Join(dir, feature)) {
+		if matches, err := filepath.Glob(filepath.Join(dir, feature)); err != nil {
+			log.Panic(err)
+		} else if len(matches) == 0 {
 			return false
 		}
 	}
