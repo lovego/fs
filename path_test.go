@@ -17,3 +17,9 @@ func ExampleSourceFile() {
 	fmt.Println(strings.HasSuffix(filepath.ToSlash(p), `github.com/lovego/fs/path_test.go`))
 	// Output: true
 }
+
+func ExampleFilepathDir() {
+	fmt.Println(filepath.Dir(`/`))
+	// Output:
+	// /
+}

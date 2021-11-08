@@ -1,14 +1,12 @@
 # fs
 file system relevant utils.
 
-[![Build Status](https://travis-ci.org/lovego/fs.svg?branch=master)](https://travis-ci.org/lovego/fs)
-[![Coverage Status](https://img.shields.io/coveralls/github/lovego/fs/master.svg)](https://coveralls.io/github/lovego/fs?branch=master)
+[![Build Status](https://github.com/lovego/fs/actions/workflows/go.yml/badge.svg)](https://github.com/lovego/fs/actions/workflows/go.yml)
+[![Coverage Status](https://coveralls.io/repos/github/lovego/fs/badge.svg?branch=master)](https://coveralls.io/github/lovego/fs)
 [![Go Report Card](https://goreportcard.com/badge/github.com/lovego/fs)](https://goreportcard.com/report/github.com/lovego/fs)
-[![GoDoc](https://godoc.org/github.com/lovego/fs?status.svg)](https://godoc.org/github.com/lovego/fs@v0.0.3)
+[![Documentation](https://pkg.go.dev/badge/github.com/lovego/fs)](https://pkg.go.dev/github.com/lovego/fs@v0.0.2)
 
 ## Install
 `$ go get github.com/lovego/fs`
 
 
-## Documentation
-[https://godoc.org/github.com/lovego/fs](https://godoc.org/github.com/lovego/fs)

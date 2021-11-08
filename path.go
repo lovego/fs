@@ -48,9 +48,14 @@ func IsEmptyDir(p string) (bool, error) {
 }
 
 func DetectDir(dir string, features ...string) string {
-	for ; dir != `/`; dir = filepath.Dir(dir) {
+	for {
 		if hasAllFeatures(dir, features) {
 			return dir
+		}
+		if parentDir := filepath.Dir(dir); parentDir != dir {
+			dir = parentDir
+		} else {
+			return ``
 		}
 	}
 	return ``
