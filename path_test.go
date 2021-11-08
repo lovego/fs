@@ -8,20 +8,12 @@ import (
 
 func ExampleSourceDir() {
 	p := SourceDir()
-	fmt.Println(p)
-	fmt.Println(strings.HasSuffix(filepath.ToSlash(p), `github.com/lovego/fs`))
+	fmt.Println(strings.HasSuffix(filepath.ToSlash(p), `/fs`))
 	// Output: true
 }
 
 func ExampleSourceFile() {
 	p := SourceFile()
-	fmt.Println(p)
-	fmt.Println(strings.HasSuffix(filepath.ToSlash(p), `github.com/lovego/fs/path_test.go`))
+	fmt.Println(strings.HasSuffix(filepath.ToSlash(p), `/fs/path_test.go`))
 	// Output: true
-}
-
-func ExampleFilepathDir() {
-	fmt.Println(filepath.Dir(`/`))
-	// Output:
-	// /
 }

@@ -38,11 +38,16 @@ jobs:
       run: go build -v ./...
 
     - name: Test
+      run: go test -v ./...
+      if: ${{ ! (matrix.os == 'ubuntu-latest' && matrix.go == '1.16') }}
+
+    - name: Test with coverage
       run: go test -v -coverprofile=profile.cov ./...
+      if: ${{ matrix.os == 'ubuntu-latest' && matrix.go == '1.16' }}
 
     - name: Send coverage
       uses: shogo82148/actions-goveralls@v1
       with:
         path-to-profile: profile.cov
-      if: ${{ matrix.go == '1.16' }}
+      if: ${{ matrix.os == 'ubuntu-latest' && matrix.go == '1.16' }}
 

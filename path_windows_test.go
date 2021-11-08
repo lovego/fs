@@ -5,8 +5,8 @@ import (
 	"path/filepath"
 )
 
-func ExampleFilepathDir() {
+func ExampleFilepathDir_windows() {
 	fmt.Println(filepath.Dir(`C:\`))
 	// Output:
-	// C:\\
+	// C:\
 }
